@@ -4,9 +4,9 @@ from django.db import models
 
 
 class Event(models.Model):
-    name = models.CharField(max_length=150)
+    title = models.CharField(max_length=150)
     image = models.ImageField()
-    organiser = models.CharField(max_length=150)
-    Date = models.DateField()
-    title = models.CharField(max_length=100)
-    body = models.TextField()
+    description = models.TextField()
+    datetime = models.DateTimeField()
+    location = models.CharField(max_length=150)
+    seats = models.IntegerField()
