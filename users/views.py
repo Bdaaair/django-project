@@ -17,7 +17,7 @@ def user_register(request):
 
             login(request, user)
             # Where you want to go after a successful signup
-            return redirect("successful-signup")
+            return redirect("home")
     context = {
         "form": form,
     }
@@ -37,7 +37,7 @@ def user_login(request):
             if auth_user is not None:
                 login(request, auth_user)
                 # Where you want to go after a successful login
-                return redirect("successful-login")
+                return redirect("home")
 
     context = {
         "form": form,
@@ -47,4 +47,6 @@ def user_login(request):
 
 def logout_view(request):
     logout(request)
-    return redirect("success-page")
+    return redirect("home")
+
+

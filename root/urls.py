@@ -17,14 +17,24 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
-
-from coded.views import home
-from users.views import login
+from coded.views import get_home, createevents, get_event, myprofile, nono,editevent,deletevent
+from users.views import user_login, user_register, logout_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', home, name="home"),
-    path('login/', login, name="login"),
+    path('home/', get_home, name="home"),
+    path('login/', user_login, name="login"),
+    path('logout/', logout_view, name="logout"),
+    path('createevent/', createevents, name="createevent"),
+    path('register/', user_register, name="register"),
+    path('event/<int:obj_id>/', get_event, name="event"),
+    path('myprofile/', createevents, name="myprofile"),
+
+    path('edit/<int:id>', editevent, name="edit"),
+    path('delete/<int:id>', deletevent, name="delete"),
+    path('nono/', nono, name="nono"),
+
+
 
 
 ]

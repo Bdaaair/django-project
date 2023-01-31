@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+
+<form method="POST" action="{% url 'createevent' %}">
+
+    {% csrf_token %}
+    {{ eventform|crispy }}   
+    <button type="submit">Create</button>
+</form>
+
+{{}}
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+
+{% block content %}
+
+<h1>Enjoy our Event!</h1>
+
+<div class="card" style="width: 18rem;">
+  <img src="{{event.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{event.title}}</h5>
+    <p class="card-text">{{event.description}}</p>
+    <p class="card-text">{{event.location}}</p>
+    <p class="card-text">{{event.Organiser}}</p>
+    <p class="card-text">{{event.datetime}}</p>
+    <p class="card-text">{{event.seats}}</p>
+    <div class="d-flex"  >
+      {% if user.is_active %} 
+
+      <a href="#" class="btn btn-primary m-1">Book Now</a>
+      {% endif %}
+
+      {% if user.is_staff %} 
+
+      <a href="{% url 'edit' id=event.id %}" class="btn btn-primary m-1">Edit</a>
+      <a href="{% url 'delete' id=event.id  %}" class="btn btn-primary m-1">Delet</a>
+      {% endif %}
+
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+
+
+

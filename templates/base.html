@@ -21,12 +21,23 @@
             </h3>
         </div>
         <div>
-            <button type="button" class="btn btn-light">Home Page</button>
-            <button type="button" class="btn btn-light">Event Page</button>
+            
+            <button type="button" class="btn btn-light"><a href="{% url 'home' %}" > Home Page</a></button>
+         {% if user.is_staff %} 
+
+
+            <button type="button" class="btn btn-light"><a href="{% url 'myprofile' %}" > Create Event</a></button>
+{% endif %}
+
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-primary me-md-2" type="button">Login</button>
-            <button class="btn btn-primary" type="button">Register</button>
+            {% if user.is_active %}
+
+            <button type="button" class="btn btn-light"><a href="{% url 'logout' %}" > Logout</a></button>
+            {% else %}
+            <button type="button" class="btn btn-light"><a href="{% url 'login' %}" > Login</a></button>
+            <button type="button" class="btn btn-light"><a href="{% url 'register' %}" > register</a></button>
+            {% endif %}
           </div>
           
 

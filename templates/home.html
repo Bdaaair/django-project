@@ -1,23 +1,32 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
 
 
 {% block content %}
 
-<h1>Hello, world!</h1>
 
 
+  {% for event in events %}
+  
+  <div class="card text-bg-dark">
+    <img src="{{event.image.url}}" width="500" alt="...">
+    <div class="card-img-overlay">
+      <h5 class="card-title">{{event.title}}</h5>
+      <p class="card-text">{{event.description}}</p>
+      <p class="card-text">{{event.location}}</p>
+      <p class="card-text">{{event.Organiser}}</p>
+      <p class="card-text"><small>{{event.datetime}}</small></p>
+      {{event.seats}}
+      <br>
+      
+      <button type="button" class="btn btn-link "><a href="{% url 'event' event.id %}" > View Page</a></button>
+     
+    </div>
+  </div>
+  {% endfor %}
 
-
-<h1>hello bader</h1>
-
-
-
-
-<h1>hello yosef</h1>
-
-<h1>hello ali</h1>
 
 {% endblock %}
 
